@@ -1,0 +1,42 @@
+[
+    {
+        "date": "20:40:00",
+        "ap": 215,
+        "doam": 67,
+        "nhietdo": 27,
+        "dong": 0.15,
+        "congsuat": 450
+    },
+    {
+        "date": " 20:40:00",
+        "ap": 193,
+        "doam": 86,
+        "nhietdo": 22,
+        "dong": 0.15,
+        "congsuat": 350
+    },
+    {
+        "date": " 20:40:00",
+        "ap": 246,
+        "doam": 73,
+        "nhietdo": 29,
+        "dong": 0.15,
+        "congsuat": 650
+    },
+    {
+        "date": "20:40:00",
+        "ap": 239,
+        "doam": 69,
+        "nhietdo": 26,
+        "dong": 0.15,
+        "congsuat": 400
+    },
+    {
+        "date": "20:40:00",
+        "ap": 220,
+        "doam": 55,
+        "nhietdo": 27,
+        "dong": 0.15,
+        "congsuat": 700
+    }
+]
