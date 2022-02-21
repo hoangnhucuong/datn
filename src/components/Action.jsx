@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useState } from "react";
 import on from '../img/fan-gif-on.gif';
 import off from '../img/fan-gif-off.png';
 import light_off from '../img/light-off.png';
@@ -6,25 +6,6 @@ import light_on from '../img/light-on.gif';
 import Paho from 'paho-mqtt';
 import React from "react";
 
-// function useInterval(callback, delay) {
-//     const savedCallback = useRef();
-
-//     // Remember the latest callback.
-//     useEffect(() => {
-//         savedCallback.current = callback;
-//     }, [callback]);
-
-//     // Set up the interval.
-//     useEffect(() => {
-//         function tick() {
-//             savedCallback.current();
-//         }
-//         if (delay !== null) {
-//             let id = setInterval(tick, delay);
-//             return () => clearInterval(id);
-//         }
-//     }, [delay]);
-// }
 
 const Action = (props) => {
     const { children } = props;
@@ -37,42 +18,28 @@ const Action = (props) => {
     const [light, setLight] = useState("ON");
     const handleFan = () => {
         if (fan === "OFF") {
-            var msg = "1";
+            const msg = "1";
             publish("Dieu_khien", msg);
         }
         else {
-            var msg = "2";
+            const msg = "2";
             publish("Dieu_khien", msg);
         }
     }
     const handleLight = () => {
         if (light === "OFF") {
-            var msg = "3";
+            const msg = "3";
             publish("Dieu_khien", msg);
 
         }
         else {
-            var msg = "4";
+            const msg = "4";
             publish("Dieu_khien", msg);
         }
     }
-    // const handleSend = () => {
-    //     var msg = (light === "OFF" ? "1" : "0") + "" + (fan === "OFF" ? "1" : "0");
-    //     publish("Dieu_khien", msg);
-    //     console.log(msg);
-    // }
-
-    // useInterval(() => {
-    //     handleSend();
-    // }, 1000);
-
     const onMessageArrived = (message) => {
         const temp = message.payloadString.toString().trim().replace("ND:", "").trim().replace("DA:", "").replace("AP:", "").replace("D:", "").replace("TT1:", "").replace("TT2:", "").split(" ");
         if (temp[4] !== undefined && temp[5] !== undefined) {
-            // if(temp[4]===1)
-            // {
-            //     console.log(true);
-            // }
             console.log(temp[4] === '0');
             if (temp[4] === '1') {
                 setFan("OFF");
@@ -86,8 +53,6 @@ const Action = (props) => {
             if (temp[5] === '0') {
                 setLight("ON");
             }
-            // setFan(Number(temp[4]) === '1' ? "OFF" : "ON");
-            // setLight(Number(temp[5]) === '1' ? "OFF" : "ON");
         }
     }
     const onConnectionLost = (responseObject) => {
